@@ -30,3 +30,7 @@ footer {
 nav {
   background-color: #ffffff !important;
 }
+
+.vl {
+  border-left: thin solid #d7d2d5;
+}
