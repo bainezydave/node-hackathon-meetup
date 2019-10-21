@@ -39,7 +39,7 @@ const create = (req, res) =>
 
 const show = (req, res) =>
 {
-    Event.findOne({
+    Group.findOne({
         _id: req.params.id
     })
     .populate('user')
