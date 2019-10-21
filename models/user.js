@@ -21,10 +21,6 @@ const UserSchema = new Schema({
     photo: {
         type: String
     },
-    created: {
-        type: Date,
-        required: true
-    },
     bio: {
         type: String
     },
