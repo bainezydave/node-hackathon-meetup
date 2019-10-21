@@ -14,7 +14,6 @@ module.exports = function (passport)
         }, (accessToken, refreshToken, profile, done) =>
         {
             const image = profile.photos[0].value.substring(0, profile.photos[0].value.indexOf('?'));
-            console.log(image);
 
                 const newUser = {
                     googleID: profile.id,
@@ -24,21 +23,21 @@ module.exports = function (passport)
                     image: image
                 };
 
-            User.findOne({
-                googleID: profile.id
-            })
-                .then(user =>
-                {
-                    if (user)
-                    {
-                        done(null, user);
-                    } else
-                    {
-                        new User(newUser)
-                            .save()
-                            .then(user => done(null, user));
-                    }
+                User.findOne({
+                    googleID: profile.id
                 })
+                    .then(user =>
+                    {
+                        if (user)
+                        {
+                            done(null, user);
+                        } else
+                        {
+                            new User(newUser)
+                                .save()
+                                .then(user => done(null, user));
+                        }
+                    });
         })
     );
     passport.serializeUser((user, done) =>

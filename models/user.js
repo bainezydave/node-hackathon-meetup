@@ -29,7 +29,7 @@ const UserSchema = new Schema({
         type: String
     },
     interests: {
-        type: fer
+        type: String
     }
 });
 

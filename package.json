@@ -1,12 +1,12 @@
 {
-  "name": "project2_storyboard",
+  "name": "Hackathon Meetup Project",
   "version": "1.0.0",
-  "description": "project for story tracking",
+  "description": "Hackathon Meetup Project",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
-  "author": "",
+  "author": "Aidan Lawson & Dave Baines",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
