@@ -29,4 +29,29 @@ footer {
 
 nav {
   background-color: #ffffff !important;
+  height:50px;
+
+}
+
+.vl {
+  border-left: thin solid #d7d2d5;
+}
+
+.nav-link-grey {
+  color: grey !important;
+  font-size: 10pt;
+}
+
+.nav-link-grey:hover {
+  color: #f65858 !important;
+}
+
+.member-home-bounds {
+  position: relative;
+  background-position: center center;
+  background-size: cover;
+  margin-bottom: 44px;
+  display: block;
+  background-color: #00465d;
+  height:150px;
 }

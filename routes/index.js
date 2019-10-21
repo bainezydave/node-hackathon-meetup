@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const Event    = mongoose.model('events');
 const { ensureAuthenticated, ensureGuest } = require('../helpers/auth');
 
+
 router.get('/', (req, res) => res.render('index/home'));
 router.get('/about', (req, res) => res.render('index/about'));
 
