@@ -10,13 +10,13 @@ const session = require("express-session");
 const passport = require("passport");
 
 require("./models/user");
-require("./models/story");
+require("./models/event");
 require("./config/passport")(passport);
 
 //Load routes
 const auth = require("./routes/auth");
 const index = require("./routes/index");
-const stories = require("./routes/stories");
+const events = require("./routes/events");
 
 // Load mongoose keys
 const keys = require("./config/keys");
@@ -94,7 +94,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // use auth Routes : anything that routes to /auth goes to auth.js
 app.use("/auth", auth);
 app.use("/", index);
-app.use("/stories", stories);
+app.use("/events", events);
 
 var port = process.env.PORT || 3000;
 app.listen(port, () =>

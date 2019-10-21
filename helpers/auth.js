@@ -11,7 +11,7 @@ module.exports = {
     {
         if (req.isAuthenticated())
         {
-            res.redirect('/dashboard');
+            res.redirect('/');
         } else
         {
             return next();
