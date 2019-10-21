@@ -1,5 +1,5 @@
 const express = require("express");
-// path for css
+const app = express();
 const path = require("path");
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
@@ -11,49 +11,35 @@ const passport = require("passport");
 
 require("./models/user");
 require("./models/event");
+require("./models/group");
 require("./config/passport")(passport);
 
-//Load routes
 const auth = require("./routes/auth");
 const index = require("./routes/index");
 const events = require("./routes/events");
+const groups = require("./routes/groups");
 
-// Load mongoose keys
 const keys = require("./config/keys");
 
-// Handlebars helpers
-const {
-    truncate,
-    stripTags,
-    formatDate,
-    select,
-    editIcon
-} = require("./helpers/hbs");
-// Map global promises
+const { truncate, stripTags, formatDate, select, editIcon } = require("./helpers/hbs");
+
 mongoose.Promise = global.Promise;
-// mongoose connect
-mongoose
-  .connect(
+
+mongoose.connect(
     keys.mongoURI,
     {
-      useNewUrlParser: true
-    }
-  ) // note connect returns promise
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
   .then(() => console.log("MongoDb connection"))
   .catch(err => console.log(err));
 
-const app = express();
-
-// Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Method Override middleware
 app.use(methodOverride("_method"));
 
-// handlebars middleware
-app.engine(
-    "handlebars",
+app.engine("handlebars",
     exphbs({
         helpers: {
             truncate: truncate,
@@ -69,35 +55,28 @@ app.engine(
 app.set("view engine", "handlebars");
 
 app.use(cookieParser());
-app.use(
-    session({
-        secret: "secret",
+app.use(session({
+        secret: "superSecretPassword",
         resave: false,
         saveUninitialized: false
     })
 );
 
-//passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Set global vars just like current_user if user logged in
 app.use((req, res, next) =>
 {
     res.locals.user = req.user || null;
     next();
 });
 
-// Set Static folder
 app.use(express.static(path.join(__dirname, "public")));
 
-// use auth Routes : anything that routes to /auth goes to auth.js
 app.use("/auth", auth);
 app.use("/", index);
 app.use("/events", events);
+app.use("/groups", groups);
 
 var port = process.env.PORT || 3000;
-app.listen(port, () =>
-{
-    console.log(`started server on port ${port}`);
-});
+app.listen(port, () => console.log(`started server on port ${port}`));
