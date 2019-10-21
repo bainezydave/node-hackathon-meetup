@@ -1,44 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
-    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <title>Find your people | meetup</title>
   </head>
   <body>
 
+
     {{> _header}}
-    <!-- if user logged in show floating button to add stories -->
+
     {{#if user}}
-      {{> _add-btn}}
+        {{> _add-btn}}
     {{/if}}
+
     <main>
           {{{body}}}
+
     </main>
+
     {{> _footer}}
-    <!-- include jquery cdn -->
-      <script
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous">
-    </script>
-      <!-- Compiled and minified JavaScript -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-     <!-- ck editor -->
-     <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
-     <script type="text/javascript">
-        $(document).ready(function(){
-         $('.sidenav').sidenav();
-          $('select').formSelect();
-        });
-        CKEDITOR.replace('body', {
-          plugins: 'wysiwygarea , toolbar, basicstyles, link'
-        });
-        // plugins object allows you to pass only what is needed and doesnot let edit source
-        // wysiwygarea - what you see is what you get area
-      </script>
-  </body>
+</body>
 </html>

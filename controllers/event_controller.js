@@ -48,8 +48,20 @@ const create = (req, res) =>
     });
 };
 
-
 const show = (req, res) =>
+{
+    Event.find()
+        .populate('user')
+        .populate('comments.commentUser')
+        .then(event =>
+        {
+            res.render('events/show', {
+                event: event
+            });
+        });
+};
+
+const showOne = (req, res) =>
 {
     Event.findOne({
         _id: req.params.id
@@ -216,6 +228,7 @@ module.exports = {
     viewCreate,
     create,
     show,
+    showOne,
     viewEdit,
     edit,
     remove,
