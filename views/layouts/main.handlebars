@@ -9,16 +9,14 @@
     <title>Find your people | meetup</title>
   </head>
   <body>
-    
+
     {{> _header}}
     <!-- if user logged in show floating button to add stories -->
     {{#if user}}
       {{> _add-btn}}
     {{/if}}
     <main>
-      <div class="container">
           {{{body}}}
-      </div>
     </main>
     {{> _footer}}
     <!-- include jquery cdn -->
