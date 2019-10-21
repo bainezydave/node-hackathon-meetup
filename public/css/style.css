@@ -26,3 +26,7 @@ footer {
 #delete-form {
     display: inline;
 }
+
+nav {
+  background-color: #ffffff !important;
+}

@@ -1,34 +1,13 @@
-<nav class="grey darken-3">
-  <div class="container">
-      <div class="nav-wrapper">
-          <!-- <a href="#">Login</a> -->
-        <a class="brand-logo center" href="/">Story Book</a>
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="fa fa-bars"></i></a>
-        <!-- RIGHT NAV -->
-        <ul class="right hide-on-small-only">
-          <!-- if logged in -->
-          {{#if user}}
-              <li><a href="/dashboard">Welcome {{user.firstName}}</a></li>
-              <li><a href="/auth/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
-          {{else}}
-              <li><a href="/stories"><i class="fa fa-book"></i>Public Stories</a></li>
-              <!-- <li><a href="/auth/google">Login <i class="fa fa-user"></i></a></li> -->
-          {{/if}}
-        </ul>
-      <!-- SIDE MENU  note: match id to data-target -->
-        <ul class="sidenav" id="slide-out">
-          <li><a href="/stories"><i class="fa fa-book"></i>Public Stories</li>
-          <li class="divider"></li>
-          <li>
-            {{#if user}}
-              <li><a href="/dashboard"><i class="fa fa-cog"></i>Dashboard</li>
-              <li><a href="/stories/my"><i class="fa fa-user"></i>My Stories</li>
-              <li><a href="/auth/logout"><i class="fa fa-user"></i>Logout</li>
-            {{else}}
-              <a class="btn red darken-1" href="/auth/google"><i class="fa fa-google left"></i>Login with Google</a>
-            {{/if}}
-          </li>
-        </ul>
-    </div>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="http://localhost:3000/">
+      <img width="100px" src="https://secure.meetupstatic.com/s/img/5455565085016210254/logo/svg/logo--script.svg">
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   </div>
 </nav>
