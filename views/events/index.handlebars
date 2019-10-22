@@ -1,1 +1,18 @@
-<h1>index</h1>
+<div class="container">
+  <h1 class="hero-banner-header" style="text-align: center;">All Events</h1>
+
+  <div class="e-index-cards">
+    {{#each events}}
+      <div class="card index-card">
+        <div class="card-image">
+        </div>
+        <div class="card-content">
+          <h1><strong>{{this.name}}</strong></h1>
+          <p>{{this.details}}</p>
+          <p>{{this.time}}</p>
+          <p>{{this.id}}</p>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

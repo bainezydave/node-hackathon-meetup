@@ -22,19 +22,21 @@
       <h1>here are some events in sydney</h1>
     </div>
   </div>
-<<<<<<< HEAD
   <div class="card-group">
-    {{#each events}}
-      <div class="e-syd-cards">
-        <p>{{event.name}}</p>
-      </div>
-    {{/each}}
+    <div class="columns is-3">
+      {{#each events}}
+        <div class="column">
+          <div class="e-syd-cards">
+            <div class="card-image">
+            </div>
+            <div class="card-content">
+              <h1><strong>{{this.name}}</strong></h1>
+              <p>{{this.details}}</p>
+              <p>{{this.time}}</p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
   </div>
 </div>
-=======
-</div>
-
-<div>
-  <p>{{events}}</p>
-</div>
->>>>>>> 71c9040787e9c06589903994c568683692541310
