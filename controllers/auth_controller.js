@@ -1,20 +1,18 @@
-
-
 const verify = (req, res) =>
 {
     if (req.user)
     {
-        console.log('Authorised');
-        console.log(req.user);
+        console.log('Authorised', req.user);
     } else
     {
         console.log('Not Authorised');
     }
 };
 
+
 const login = (req, res) =>
 {
-    res.redirect('/');
+    res.render('auth/login');
 };
 
 const logout = (req, res) =>

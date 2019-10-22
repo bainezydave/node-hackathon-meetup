@@ -14,11 +14,6 @@ require("./models/event");
 require("./models/group");
 require("./config/passport")(passport);
 
-const auth = require("./routes/auth");
-const index = require("./routes/index");
-const events = require("./routes/events");
-const groups = require("./routes/groups");
-
 const keys = require("./config/keys");
 
 const { truncate, stripTags, formatDate, select, editIcon } = require("./helpers/hbs");
@@ -31,8 +26,8 @@ mongoose.connect(
       useNewUrlParser: true,
       useUnifiedTopology: true
     })
-  .then(() => console.log("MongoDb connection"))
-  .catch(err => console.log(err));
+    .then(() => console.log("MongoDb connection"))
+    .catch(err => console.log(err));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -73,10 +68,11 @@ app.use((req, res, next) =>
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/auth", auth);
-app.use("/", index);
-app.use("/events", events);
-app.use("/groups", groups);
+app.use("/auth",   require("./routes/auth"));
+app.use("/",       require("./routes/index"));
+app.use("/events", require("./routes/events"));
+app.use("/groups", require("./routes/groups"));
 
-var port = process.env.PORT || 3000;
+
+const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`started server on port ${port}`));
