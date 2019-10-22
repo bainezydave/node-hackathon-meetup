@@ -4,13 +4,12 @@
     {{#each events}}
     <a href="/events/show/{{this._id}}">
       <div class="card index-card">
-        <div class="card-image">
+        <div class="e-index-card-img">
         </div>
-        <div class="card-content">
-          <h1><strong>{{this.name}}</strong></h1>
+        <div class="e-index-card-content">
+          <h1 class="index-card-header">{{this.name}}</h1>
           <p>{{this.details}}</p>
           <p>{{this.time}}</p>
-          <p>{{this.id}}</p>
         </div>
       </div>
     {{/each}}

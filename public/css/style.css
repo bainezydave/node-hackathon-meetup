@@ -163,6 +163,10 @@ nav {
 .index-card {
   width: 884px;
   margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 .e-index-cards {
@@ -172,6 +176,33 @@ nav {
   align-items: center;
   box-sizing: border-box;
   flex-direction: column;
+}
+
+.e-index-card-img {
+  background-color: #f65858;
+  height: 250px;
+  max-width: 444px;
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+.e-index-card-content {
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  min-height: 160px;
+  display:flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-direction: column;
+  height: 100%;
+  padding-left: 10px;
+}
+
+.index-card-header {
+  font-size: 25pt;
 }
 
 .card-link {

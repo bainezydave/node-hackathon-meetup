@@ -22,7 +22,7 @@ const create = (req, res) =>
         city: req.body.city,
         postCode: req.body.postCode,
         state: req.body.state,
-        time: req.body.time,
+        time: event.time = dateFormat(req.body.time, "dddd, mmmm dS, yyyy, h:MM:ss TT"),
         photo: req.body.photo,
         accepted: req.body.accepted,
         declined: req.body.declined,
@@ -83,7 +83,7 @@ const edit = (req, res) =>
             event.city = req.body.city;
             event.postCode = req.body.postCode;
             event.state = req.body.state;
-            event.time = req.body.time;
+            event.time = dateFormat(req.body.time, "dddd, mmmm dS, yyyy, h:MM:ss TT");
             event.photo = req.body.photo;
             event.accepted = req.body.accepted;
             event.declined = req.body.declined;
