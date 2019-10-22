@@ -24,7 +24,7 @@ const create = (req, res) =>
     const newGroup = {
         name: req.body.name,
         purpose: req.body.purpose,
-        created: req.body.created,
+        created: Date.now(),
         members: req.body.members,
         hosts: req.body.hosts,
         photo: req.body.photo,

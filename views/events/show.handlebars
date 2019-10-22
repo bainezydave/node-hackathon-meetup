@@ -1,6 +1,9 @@
-<h1>Events Show</h1>
+{{!-- <h1>Events Show</h1> --}}
 
 <div>
-    {{event}}
+
+    {{#each event}}
+        {{this.user}}
+    {{/each}}
 </div>
 

@@ -22,10 +22,16 @@ const EventSchema = new Schema({
     state: {
         type: String
     },
+    date: {
+        type: Date
+    },
     time: {
         type: Date
     },
     photo: {
+        type: String
+    },
+    user: {
         type: String
     },
     accepted: {
@@ -35,12 +41,10 @@ const EventSchema = new Schema({
     comments: [
         {
             commentBody: {
-                type: String,
-                required: true
+                type: String
             },
             commentDate: {
-                type: Date,
-                default: Date.now
+                type: Date
             },
             commentUser: {
                 type: Schema.Types.ObjectId,
