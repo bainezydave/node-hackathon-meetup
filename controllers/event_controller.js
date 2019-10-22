@@ -5,12 +5,9 @@ const Event = mongoose.model('events');
 const index = (req, res) =>
 {
     Event.find()
-    .populate('user')
-    .sort({ date: 'desc' })
-    .then(events =>
-    {
-        res.render('events/index', {events});
-    });
+        .populate('user')
+        .sort({ date: 'desc' })
+        .then(events => res.render('events/index', { events }));
 };
 
 
@@ -19,10 +16,6 @@ const viewCreate = (req, res) => res.render('events/new');
 
 const create = (req, res) =>
 {
-    let allowComments = false;
-
-    if (req.body.allowComments) allowComments = true;
-
     const newEvent = {
         name: req.body.name,
         details: req.body.details,
@@ -34,145 +27,93 @@ const create = (req, res) =>
         photo: req.body.photo,
         accepted: req.body.accepted,
         declined: req.body.declined,
-        allowComments: allowComments,
-        user: req.user.id
+        user: req.user._id
     };
 
     new Event(newEvent)
-    .save()
-    .then(event =>
-    {
-        res.redirect(`/events/show/${event.id}`);
-    });
+        .save()
+        .then(event => res.redirect(`/events/show/${event._id}`));
 };
+
 
 const show = (req, res) =>
 {
     Event.find()
         .populate('user')
         .populate('comments.commentUser')
-        .then(event =>
-        {
-            res.render('events/show', {event});
-        });
+        .then(event => res.render('events/show', { event }));
 };
 
 const showOne = (req, res) =>
 {
-    Event.findOne({
-        _id: req.params.id
-    })
-    .populate('user')
-    .populate('comments.commentUser')
-    .then(event =>
-    {
-        if (event.status == 'public')
-        {
-            res.render('events/show', {event});
-        } else
-        {
-            if (req.user)
-            {
-                if (req.user.id === event.user.id)
-                {
-                    res.render('events/show', {event});
-                } else
-                {
-                    res.redirect('/events');
-                }
-            } else
-            {
-                res.redirect('/events');
-            }
-        }
-    });
+    Event.findOne({ _id: req.params.id })
+        .populate('user')
+        .populate('comments.commentUser')
+        .then(event => res.render('events/show', { event }));
 };
 
 
 const viewEdit = (req, res) =>
 {
-    Event.findOne({
-        _id: req.params.id
-    })
-    .then(event =>
-    {
-        if (event.user != req.user.id)
+    Event.findOne({ _id: req.params.id })
+        .then(event =>
         {
-            res.redirect('/events');
-        } else
-        {
-            res.render('events/edit', {event});
-        }
-    });
+            if (event.user != req.user.id)
+            {
+                res.redirect('/events');
+            } else
+            {
+                res.render('events/edit', {event});
+            }
+        });
 };
 
 
 const edit = (req, res) =>
 {
-    Event.findOne({
-        _id: req.params.id
-    })
-    .then(event =>
-    {
-        let allowComments;
-
-        if (req.body.allowComments)
+    Event.findOne({ _id: req.params.id })
+        .then(event =>
         {
-            allowComments = true;
-        } else
-        {
-            allowComments = false;
-        }
+            let allowComments = false;
 
-        event.name = req.body.name;
-        event.details = req.body.details;
-        event.address = req.body.address;
-        event.city = req.body.city;
-        event.postCode = req.body.postCode;
-        event.state = req.body.state;
-        event.time = req.body.time;
-        event.photo = req.body.photo;
-        event.accepted = req.body.accepted;
-        event.declined = req.body.declined;
-        event.allowComments = allowComments;
+            if (req.body.allowComments)  allowComments = true;
 
-        event.save()
-            .then(event =>
-            {
-                res.redirect('/');
-            });
-    });
+            event.name = req.body.name;
+            event.details = req.body.details;
+            event.address = req.body.address;
+            event.city = req.body.city;
+            event.postCode = req.body.postCode;
+            event.state = req.body.state;
+            event.time = req.body.time;
+            event.photo = req.body.photo;
+            event.accepted = req.body.accepted;
+            event.declined = req.body.declined;
+            event.allowComments = allowComments;
+
+            event.save()
+                .then(event => res.redirect('/'));
+        });
 };
 
 
 const remove = (req, res) =>
 {
     Event.remove({ _id: req.params.id })
-    .then(() =>
-    {
-        res.redirect('/dashboard');
-    });
+        .then(() => res.redirect('/'));
 };
 
 
 const user = (req, res) =>
 {
-    Event.find({
-        user: req.params.userId
-    })
-    .populate('user')
-    .then(events =>
-    {
-        res.render('events/index', {events});
-    });
+    Event.find({ user: req.params.userId })
+        .populate('user')
+        .then(events => res.render('events/index', { events }));
 };
 
 
 const createComment = (req, res) =>
 {
-    Event.findOne({
-        _id: req.params.id
-    })
+    Event.findOne({ _id: req.params.id })
     .then(event =>
     {
         if (event.user == req.user.id)
@@ -186,11 +127,9 @@ const createComment = (req, res) =>
             };
 
             event.comments.unshift(newComment);
+
             event.save()
-            .then(event =>
-            {
-                res.redirect(`/events/show/${event.id}`);
-            });
+                .then(event => res.redirect(`/events/show/${event.id}`));
         }
     });
 };
@@ -198,13 +137,8 @@ const createComment = (req, res) =>
 
 const removeComment = (req, res) =>
 {
-    Event.update({
-        $pull: { comments: { _id: req.params.id } }
-    })
-    .then(() =>
-    {
-        console.log(S);
-    });
+    Event.update({ $pull: { comments: { _id: req.params.id } } })
+        .then(() => console.log(S));
 };
 
 
