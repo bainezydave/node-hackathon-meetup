@@ -219,3 +219,49 @@ nav {
   text-decoration: none;
   color: #353e48;
 }
+
+.banner {
+  background-color: #fff;
+  border-bottom: solid 1px rgba(46,62,72,.12);
+  padding-bottom: 20px;
+}
+
+.show-time {
+  color: darkgrey;
+}
+
+.show-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.content-side {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: block;
+  flex-grow: 2;
+  flex-basis: 0;
+  max-width: 600px;
+}
+
+.cont-side-img {
+  background-color: #f65858;
+  height: 337px;
+  width: 600px;
+  margin-top: 40px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+}
+
+.cont-details {
+ max-width: 100%;
+}
+
+.location-side {
+
+}
