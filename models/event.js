@@ -32,14 +32,6 @@ const EventSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "users"
     },
-    decilned: {
-        type: Schema.Types.ObjectId,
-        ref: "users"
-    },
-    allowComments: {
-        type: Boolean,
-        default: true
-    },
     comments: [
         {
             commentBody: {

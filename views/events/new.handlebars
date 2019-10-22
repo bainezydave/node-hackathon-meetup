@@ -1,1 +1,91 @@
 <h1>Events New</h1>
+
+<div class="container">
+
+    <form action="/events/new" method="POST">
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Event Name</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <input class="input" name="name" type="text" placeholder="Event Name">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Details</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <textarea class="textarea" name="details" placeholder="Event Details"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Address</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <input class="input" name="address" type="text" placeholder="Address">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">From</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control is-expanded has-icons-left">
+                        <input class="input" name="city" type="text" placeholder="City">
+                    </p>
+                </div>
+
+                <div class="field">
+                    <p class="control is-expanded has-icons-left has-icons-right">
+                        <input class="input" name="postCode" type="text" placeholder="Post Code">
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="field is-horizontal">
+            <div class="field-label"></div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <button type="submit" class="button is-primary">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+
+
+
+
+
+

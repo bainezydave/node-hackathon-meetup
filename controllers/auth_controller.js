@@ -1,11 +1,8 @@
-
-
 const verify = (req, res) =>
 {
     if (req.user)
     {
-        console.log('Authorised');
-        console.log(req.user);
+        console.log('Authorised', req.user);
     } else
     {
         console.log('Not Authorised');

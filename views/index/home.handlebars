@@ -2,7 +2,13 @@
 </div>
 <div class="container">
 </div>
-<!-- {{#if user}}
-{{else}}
+
+{{#unless user}}
   <a class="button is-danger" href="/auth/google"><i class="fa-google left"></i>Login with Google</a>
-{{/if}} -->
+{{/unless}}
+
+{{#if user}}
+<div>
+    {{events}}
+</div>
+{{/if}}
