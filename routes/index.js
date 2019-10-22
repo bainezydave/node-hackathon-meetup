@@ -1,12 +1,12 @@
 const express  = require('express');
 const router   = express.Router();
-const mongoose = require('mongoose');
-const Event    = mongoose.model('events');
+const indexController = require("../controllers/index_controller");
 const { ensureAuthenticated, ensureGuest } = require('../helpers/auth');
 
 
-router.get('/', (req, res) => res.render('index/home'));
-router.get('/about', (req, res) => res.render('index/about'));
+router.get('/',      indexController.events);
+router.get('/about', indexController.about);
+
 
 // router.get('/dashboard', ensureAuthenticated, (req, res) =>
 // {
@@ -21,3 +21,6 @@ router.get('/about', (req, res) => res.render('index/about'));
 
 
 module.exports = router;
+
+
+

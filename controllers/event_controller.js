@@ -4,14 +4,12 @@ const Event = mongoose.model('events');
 
 const index = (req, res) =>
 {
-    Event.find({ status: 'public' })
+    Event.find()
     .populate('user')
     .sort({ date: 'desc' })
     .then(events =>
     {
-        res.render('events/index', {
-            events: events
-        });
+        res.render('events/index', {events});
     });
 };
 
@@ -55,9 +53,7 @@ const show = (req, res) =>
         .populate('comments.commentUser')
         .then(event =>
         {
-            res.render('events/show', {
-                event: event
-            });
+            res.render('events/show', {event});
         });
 };
 
@@ -72,18 +68,14 @@ const showOne = (req, res) =>
     {
         if (event.status == 'public')
         {
-            res.render('events/show', {
-                event: event
-            });
+            res.render('events/show', {event});
         } else
         {
             if (req.user)
             {
                 if (req.user.id === event.user.id)
                 {
-                    res.render('events/show', {
-                        event: event
-                    });
+                    res.render('events/show', {event});
                 } else
                 {
                     res.redirect('/events');
@@ -109,9 +101,7 @@ const viewEdit = (req, res) =>
             res.redirect('/events');
         } else
         {
-            res.render('events/edit', {
-                event: event
-            });
+            res.render('events/edit', {event});
         }
     });
 };
@@ -149,7 +139,7 @@ const edit = (req, res) =>
         event.save()
             .then(event =>
             {
-                res.redirect('/dashboard');
+                res.redirect('/');
             });
     });
 };
@@ -168,15 +158,12 @@ const remove = (req, res) =>
 const user = (req, res) =>
 {
     Event.find({
-        user: req.params.userId,
-        status: 'public'
+        user: req.params.userId
     })
     .populate('user')
     .then(events =>
     {
-        res.render('events/index', {
-            events: events
-        });
+        res.render('events/index', {events});
     });
 };
 
@@ -188,8 +175,6 @@ const createComment = (req, res) =>
     })
     .then(event =>
     {
-        console.log(event.user);
-        console.log(req.user.id);
         if (event.user == req.user.id)
         {
             res.redirect(`/events/show/${event.id}`);
