@@ -1,7 +1,15 @@
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
+const JwtStrategy = require('passport-jwt').Strategy;
+const ExtractJwt = require('passport-jwt').ExtractJwt;
 const mongoose = require('mongoose');
 const keys = require('./keys');
 const User = mongoose.model('users');
+
+let opts = {};
+opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+opts.secretOrKey = 'secretkey';
+
 
 module.exports = function (passport)
 {
@@ -40,13 +48,36 @@ module.exports = function (passport)
                     });
         })
     );
-    passport.serializeUser((user, done) =>
-    {
-        done(null, user.id);
-    });
 
-    passport.deserializeUser((id, done) =>
+
+    passport.use(new JwtStrategy(opts, (jwt_payload, done) =>
     {
-        User.findById(id).then(user => done(null, user));
-    });
+        User.findOne({ id: jwt_payload.sub }, (err, user) =>
+        {
+            if (err) return done(err, false);
+                
+            if (user) return done(null, user);
+                
+            return done(null, false);
+        });
+    }));
+
+
+    passport.use(new LocalStrategy({ usernameField: 'email' },
+        async (email, password, done) => 
+        {
+            let user = await User.findOne({ email }).catch(done);
+
+            if (!user) return done(null, false);
+
+            if (!user.verifyPassword(password)) return done(null, false);
+
+            return done(null, user);
+        }
+    ));
+
+
+    passport.serializeUser((user, done) => done(null, user.id));
+
+    passport.deserializeUser((id, done) => User.findById(id).then(user => done(null, user)));
 };
