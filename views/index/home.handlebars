@@ -8,7 +8,7 @@
           </div>
           <div class="attend-events-p">
             <p>Attend local events to meet people, try something <br> new, or do more of what you love.</p>
-            <button style="margin-top:15px;" class="button is-danger is-medium">Search</button>
+            <a href="/events"><button style="margin-top:15px;" class="button is-danger is-medium">Browse Events</button></a>
           </div>
         </div>
       </div>
@@ -19,12 +19,13 @@
   </div>
   <div class="events-syd">
     <div class="e-syd-header" style="margin-top: 50px;">
-      <h1>here are some events in sydney</h1>
+      <h1>Here are some events in Sydney.</h1>
     </div>
   </div>
   <div class="card-group">
     <div class="columns is-3">
       {{#each events}}
+      <a class="card-link" href="/events/show/{{this._id}}">
         <div class="column">
           <div class="e-syd-cards">
             <div class="card-image">
@@ -36,6 +37,7 @@
             </div>
           </div>
         </div>
+        </a>
       {{/each}}
     </div>
   </div>
