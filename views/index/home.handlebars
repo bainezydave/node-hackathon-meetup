@@ -17,14 +17,16 @@
       </div>
     </div>
   </div>
-
   <div class="events-syd">
-    <div class="e-syd-header">
+    <div class="e-syd-header" style="margin-top: 50px;">
       <h1>here are some events in sydney</h1>
     </div>
   </div>
-</div>
-
-<div>
-  <p>{{events}}</p>
+  <div class="card-group">
+    {{#each events}}
+      <div class="e-syd-cards">
+        <p>{{event.name}}</p>
+      </div>
+    {{/each}}
+  </div>
 </div>

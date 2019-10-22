@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Event = mongoose.model('events');
 
-
 const index = (req, res) =>
 {
     Event.find()

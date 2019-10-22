@@ -3,6 +3,7 @@ body {
     min-height: 100vh;
     flex-direction: column;
 }
+
 main {
     flex: 1 0 auto;
 }
@@ -30,7 +31,13 @@ footer {
 nav {
   background-color: #ffffff !important;
   height:50px;
+  overflow: hidden;
+}
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .vl {
@@ -39,7 +46,7 @@ nav {
 }
 
 .nav-link-grey {
-  color: grey !important;
+  color: #2e3e48 !important;
   font-size: 10pt;
 }
 
@@ -69,12 +76,13 @@ nav {
 }
 
 .hero-banner-header {
-  color: dark-grey;
+  color: #2e3e48;
   font-size: 30pt;
   font-family: 'Rubik', sans-serif;
 }
 
 .attend-events-p {
+  color: #2e3e48;
   font-size: 15.7pt;
   font-family: 'roboto', sans-serif;
 }
@@ -89,14 +97,31 @@ nav {
   flex-grow: 1;
   min-width: 0;
   position: relative;
-
 }
 
 .events-syd {
-  color: dark-grey;
+  color: #2e3e48;
   font-size: 20pt;
   font-family: 'Rubik', sans-serif;
-  position: relative;
-  top: 170px;
-  height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+}
+
+.e-syd-header {
+}
+
+.card-group {
+
+}
+.e-syd-cards {
+  height: 200px !important;
+  width: 250px !important;
+  margin:0 !important;
+  background-color: white;
+  border: solid 1px #2e3e48;
+  box-shadow: 3px 3px 3px lightgrey;
+  border-radius: 5px;
 }
