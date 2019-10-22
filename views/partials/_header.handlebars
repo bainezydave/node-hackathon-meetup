@@ -1,19 +1,14 @@
 <hr style="color:white; margin-top: -10px;">
-
-<nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item" href="http://localhost:3000/">
-            <img width="100px" height="44px;"src="https://secure.meetupstatic.com/s/img/5455565085016210254/logo/svg/logo--script.svg">
-        </a>
-    </div>
-    {{!-- <a class="navbar-item" style="float:left;">
-    Start a new group <br> 30% off
-    </a> --}}
-    <div style="margin-right:5px;" class="navbar-item navbar-end">
-        <p><a class="nav-link">Start a new group</a></p>
-    </div>
+<nav class="navbar sticky" id="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="http://localhost:3000/">
+      <img style="margin-left: 8px; max-height:44px;" src="https://secure.meetupstatic.com/s/img/5455565085016210254/logo/svg/logo--script.svg">
+    </a>
+   </div>
+   <div style="margin-right: 10px;" class="navbar-item navbar-end">
+       <p><a href="#">Create a group</a></p>
+   </div>
     <div class="vl"></div>
-
     {{#if user}}
         <div class="navbar-item">
             <p class="nav-link-grey">{{user.firstName}} {{user.lastName}}</p>
