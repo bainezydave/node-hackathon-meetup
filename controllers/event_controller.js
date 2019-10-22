@@ -15,6 +15,8 @@ const viewCreate = (req, res) => res.render('events/new');
 
 const create = (req, res) =>
 {
+    console.log(req.user._id);
+
     const newEvent = {
         name: req.body.name,
         details: req.body.details,
@@ -24,14 +26,22 @@ const create = (req, res) =>
         state: req.body.state,
         time: event.time = dateFormat(req.body.time, "dddd, mmmm dS, yyyy, h:MM:ss TT"),
         photo: req.body.photo,
+        user: req.user._id,
         accepted: req.body.accepted,
-        declined: req.body.declined,
-        user: req.user._id
+        declined: req.body.declined
     };
 
-    new Event(newEvent)
-        .save()
-        .then(event => res.redirect(`/events/show/${event._id}`));
+    try
+    {
+        new Event(newEvent)
+            .save()
+            .then(event => res.redirect(`/events/show/${event._id}`));
+        
+    } catch(error)
+    {
+        res.json(error);
+    }
+    
 };
 
 
