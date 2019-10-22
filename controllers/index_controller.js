@@ -21,5 +21,6 @@ const about = (req, res) =>
 
 
 module.exports = {
-    events
+    events,
+    about
 };
