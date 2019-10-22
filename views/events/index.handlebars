@@ -1,8 +1,8 @@
 <div class="container">
   <h1 class="hero-banner-header" style="text-align: center;">All Events</h1>
-
   <div class="e-index-cards">
     {{#each events}}
+    <a href="/events/show/{{this._id}}">
       <div class="card index-card">
         <div class="card-image">
         </div>
@@ -14,5 +14,6 @@
         </div>
       </div>
     {{/each}}
+    </a>
   </div>
 </div>

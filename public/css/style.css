@@ -173,3 +173,18 @@ nav {
   box-sizing: border-box;
   flex-direction: column;
 }
+
+.card-link {
+  text-decoration: none;
+  color: #353e48;
+}
+
+.card-link:hover {
+  text-decoration: none;
+  color: #353e48;
+}
+
+.card-link:visited {
+  text-decoration: none;
+  color: #353e48;
+}
