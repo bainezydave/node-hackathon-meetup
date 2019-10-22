@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const passport = require("passport");
+const dateFormat = require('dateformat');
 
 require("./models/user");
 require("./models/event");

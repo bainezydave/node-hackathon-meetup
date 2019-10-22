@@ -1,32 +1,31 @@
 <hr style="color:white; margin-top: -10px;">
-
 <nav class="navbar sticky" id="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-        <img style="margin-left: 8px; max-height:44px;" src="https://secure.meetupstatic.com/s/img/5455565085016210254/logo/svg/logo--script.svg">
-        </a>
-    </div>
-    <div style="margin-right: 10px;" class="navbar-item navbar-end">
-        <p><a href="/groups/new">Create a group</a></p>
-    </div>
+  <div class="navbar-brand">
+    <a class="navbar-item" href="http://localhost:3000/">
+      <img style="margin-left: 8px; max-height:44px;" src="https://secure.meetupstatic.com/s/img/5455565085016210254/logo/svg/logo--script.svg">
+    </a>
+   </div>
+   <div style="margin-right: 10px;" class="navbar-item navbar-end">
+       <p><a href="/groups/new">Create a group</a></p>
+   </div>
     <div class="vl"></div>
-
     {{#if user}}
         <div class="navbar-item">
             <p class="nav-link-grey">{{user.firstName}} {{user.lastName}}</p>
         </div>
+
         <div class="navbar-item">
             <p><a class="nav-link-grey" href="/auth/logout">Logout</a></p>
         </div>
     {{else}}
-    
-    <div class="navbar-item">
-        <p><a class="nav-link-grey" href="/auth/login">Log In</a></p>
-    </div>
-    <div class="navbar-item">
-        <p><a class="nav-link-grey">Sign Up</a></p>
-    </div>
+        <div class="navbar-item">
+            <p><a class="nav-link-grey" href="/auth/login">Log In</a></p>
+        </div>
+        <div class="navbar-item">
+            <p><a class="nav-link-grey">Sign Up</a></p>
+        </div>
     {{/if}}
 </nav>
 
 <hr>
+
