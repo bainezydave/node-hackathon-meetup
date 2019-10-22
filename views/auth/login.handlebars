@@ -1,35 +1,37 @@
-<div class="container">
-
-    <h1>Log in</h1>
+<div class="container form">
 
     <form action="/auth/login" method="POST">
 
+        <h1 class="heading">Log in</h1>
+
         <div class="field">
-            <div class="field-label is-normal">
-                <label class="label">Email</label>
+            <label class="label">Email</label>
+            <div class="control">
+                <input class="input" type="email" name="email" placeholder="Email">
             </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+                <input class="input" type="password" name="password" placeholder="Password">
+            </div>
+        </div>
+
+
+        <div class="field is-horizontal">
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <input class="input" name="email" type="email" placeholder="Email">
+                        <button type="submit" class="button is-danger">
+                            Log in
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="field">
-            <div class="field-label is-normal">
-                <label class="label">Password</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control">
-                        <input class="input" name="email" type="password" placeholder="Password">
-                    </div>
-                </div>
-            </div>
-        </div>
-
+ 
         <a class="button is-danger" href="/auth/google"><i class="fa-google left"></i>Login with Google</a>
 
     </form>

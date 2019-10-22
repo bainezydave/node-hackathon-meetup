@@ -15,6 +15,8 @@ const viewCreate = (req, res) => res.render('events/new');
 
 const create = (req, res) =>
 {
+    console.log(req.user._id);
+
     const newEvent = {
         name: req.body.name,
         details: req.body.details,
@@ -22,16 +24,24 @@ const create = (req, res) =>
         city: req.body.city,
         postCode: req.body.postCode,
         state: req.body.state,
-        time: event.time = dateFormat(req.body.time, "dddd, mmmm dS, yyyy, h:MM:ss TT"),
+        time: req.body.time,
         photo: req.body.photo,
+        user: req.user._id,
         accepted: req.body.accepted,
-        declined: req.body.declined,
-        user: req.user._id
+        declined: req.body.declined
     };
 
-    new Event(newEvent)
-        .save()
-        .then(event => res.redirect(`/events/show/${event._id}`));
+    try
+    {
+        new Event(newEvent)
+            .save()
+            .then(event => res.redirect(`/events/show/${event._id}`));
+
+    } catch(error)
+    {
+        res.json(error);
+    }
+
 };
 
 
@@ -83,7 +93,7 @@ const edit = (req, res) =>
             event.city = req.body.city;
             event.postCode = req.body.postCode;
             event.state = req.body.state;
-            event.time = dateFormat(req.body.time, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+            event.time = req.body.time;
             event.photo = req.body.photo;
             event.accepted = req.body.accepted;
             event.declined = req.body.declined;
