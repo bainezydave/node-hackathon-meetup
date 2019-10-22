@@ -7,6 +7,7 @@ const events = (req, res) =>
     Event.find()
         .populate('user')
         .populate('comments.commentUser')
+        .limit(4)
         .then(events =>
         {
             res.render('index/home', {events});

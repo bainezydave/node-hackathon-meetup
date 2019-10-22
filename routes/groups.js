@@ -1,25 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const GroupController = require("../controllers/group_controller");
-const { ensureAuthenticated, ensureGuest } = require('../helpers/auth');
+const { ensureUser, ensureGuest } = require('../helpers/auth');
 
 
-router.get('/', GroupController.index);
-
-router.get('/show/:id', GroupController.show);
-
-router.get('/show/:id', GroupController.show);
-
-router.get('/user/:userId', GroupController.user);
-
-router.get('/new', ensureAuthenticated, GroupController.viewCreate);
-
-router.get('/edit/:id', ensureAuthenticated, GroupController.viewEdit);
-
-router.post('/', GroupController.create);
-
-router.put('/:id', GroupController.edit);
-
-router.delete('/:id', GroupController.remove);
+router.get('/',                         GroupController.index);
+router.get('/show/:id',                 GroupController.show);
+router.get('/show/:id',                 GroupController.show);
+router.get('/user/:userId', ensureUser, GroupController.user);
+router.get('/new',          ensureUser, GroupController.viewCreate);
+router.get('/edit/:id',     ensureUser, GroupController.viewEdit);
+router.post('/',            ensureUser, GroupController.create);
+router.put('/:id',          ensureUser, GroupController.edit);
+router.delete('/:id',       ensureUser, GroupController.remove);
 
 module.exports = router;

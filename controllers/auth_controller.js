@@ -9,9 +9,10 @@ const verify = (req, res) =>
     }
 };
 
+
 const login = (req, res) =>
 {
-    res.redirect('/');
+    res.render('auth/login');
 };
 
 const logout = (req, res) =>
