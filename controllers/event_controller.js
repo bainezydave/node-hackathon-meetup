@@ -17,9 +17,9 @@ const viewCreate = (req, res) =>
     Group.find({
         user: req.params.userId
     })
-    .then(groups => res.render('events/new', { groups }));
+        .then(groups => res.render('events/new', { groups }));
 
-}
+};
 
 const create = (req, res) =>
 {
