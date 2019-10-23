@@ -249,12 +249,15 @@ nav {
 }
 
 .cont-side-img {
-  background-color: #f65858;
   height: 337px;
   width: 600px;
   margin-top: 40px;
   margin-bottom: 25px;
   border-radius: 5px;
+}
+
+.cont-side-img img {
+    max-height: 100%;
 }
 
 .cont-details {
