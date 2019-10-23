@@ -17,7 +17,16 @@ const viewCreate = (req, res) =>
     Group.find({
         user: req.params.userId
     })
-        .then(groups => res.render('events/new', { groups }));
+        .then(groups => {
+          console.log("ALALAL");
+          console.log(groups);
+          if(user.groups){
+            res.render('events/new', { groups }));
+          }else{
+            res.redirect('groups/new');
+          }
+
+        }
 
 };
 
