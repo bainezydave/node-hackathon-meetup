@@ -195,16 +195,7 @@ nav {
 }
 
 .e-index-card-content {
-  position: relative;
-  box-sizing: border-box;
-  display: block;
-  min-height: 160px;
-  display:flex;
-  flex-basis: 0;
-  flex-grow: 1;
-  flex-direction: column;
-  height: 100%;
-  padding-left: 10px;
+  min-width: 400px;
 }
 
 .index-card-header {
@@ -242,7 +233,6 @@ nav {
   flex-wrap: nowrap;
   justify-content: flex-start;
   box-sizing: border-box;
-  width: 100%;
 }
 
 .content-side {
@@ -265,7 +255,7 @@ nav {
 }
 
 .cont-details {
- max-width: 100%;
+  max-width: 600px;
 }
 
 .location-side {

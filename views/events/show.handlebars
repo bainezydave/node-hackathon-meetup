@@ -2,7 +2,7 @@
   <div class="container">
     <p class="show-time">{{event.time}}</p>
     <h1 class="hero-banner-header">{{event.name}}</h1>
-    <p>Created By: {{event.name}}</p>
+    <p>Created By: {{event.user}}</p>
     <p>From <a href="/groups/show/{{this.group}}">{{this.group}}</a></p>
   </div>
 </div>
@@ -13,16 +13,9 @@
       </div>
       <div class="cont-details">
         <h1 class="hero-banner-header" style="font-size: 22pt;">Details</h1>
-        <p style="margin-bottom: 20px;">
-          Welcome to Trailhead Tuesday Sydney!
-          Join us at the We Work Offices, with your laptop, to complete your next
-          Trailhead in good Ohana company and a comfortable informal environment.
-          Food and drink will be provided by Talent Hub, and new enthusiastic
-          Salesforce faces of all levels are very welcome.
-          Join us whether this is your first, or 300th Trailhead and complete at
-          your own pace</p>
-          <a href="/attending/{{this._id}}/{{this.user._id}}" class="button is-primary">I'm going!</a>
-          <p class="button is-disabled">Cancel</p>
+        <p style="margin-bottom: 20px;">{{event.details}}</p>
+        <a href="/attending/{{this._id}}/{{this.user._id}}" class="button is-primary">I'm going!</a>
+        <p class="button is-disabled">Cancel</p>
       </div>
     </div>
     <div class="location-side">
