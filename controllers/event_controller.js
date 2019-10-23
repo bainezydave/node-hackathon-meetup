@@ -15,9 +15,9 @@ const index = (req, res) =>
 const viewCreate = (req, res) =>
 {
     Group.find({
-        user: req.params.userId
+        user: req.user._id
     })
-        .then(groups => res.render('events/new', { groups }));
+    .then(groups => res.render('events/new', { groups }));
 
 };
 
