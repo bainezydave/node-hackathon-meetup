@@ -10,8 +10,9 @@
       <div class="cont-side-img">
       </div>
       <div class="cont-details">
-        <h1 class="hero-banner-header" style="font-size: 22pt;">Details</h1>
+        <h1 class="hero-banner-header" style="font-size: 22pt;">Purpose</h1>
         <p style="margin-bottom: 20px;">
+          {{group.purpose}}
         </p>
       </div>
     </div>
@@ -19,14 +20,14 @@
       <div class="group-events">
         <div class="e-index-cards">
           {{#each group.events}}
-          <a href="/events/show/{{this._id}}">
+          <a href="/events/show/{{event._id}}">
             <div class="card index-card">
               <div class="e-index-card-img">
               </div>
               <div class="e-index-card-content">
-                <h1 class="index-card-header">{{this.name}}</h1>
-                <p>{{this.details}}</p>
-                <p>{{this.time}}</p>
+                <h1 class="index-card-header">{{event.name}}</h1>
+                <p>{{event.details}}</p>
+                <p>{{event.time}}</p>
               </div>
             </div>
           {{/each}}
