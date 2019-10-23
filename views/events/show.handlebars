@@ -2,8 +2,8 @@
   <div class="container">
     <p class="show-time">{{event.time}}</p>
     <h1 class="hero-banner-header">{{event.name}}</h1>
-    <p>Created By: {{event.user}}</p>
-    <p>From <a href="/groups/show/{{this.group}}">{{this.group}}</a></p>
+    <p>Created By: {{event.user.firstName}} {{event.user.lastName}}</p>
+    <p>From: <a href="/groups/show/{{event.group}}">{{event.group}}</a></p>
   </div>
 </div>
 <div class="container">
@@ -14,7 +14,7 @@
       <div class="cont-details">
         <h1 class="hero-banner-header" style="font-size: 22pt;">Details</h1>
         <p style="margin-bottom: 20px;">{{event.details}}</p>
-        <a href="/attending/{{this._id}}/{{this.user._id}}" class="button is-primary">I'm going!</a>
+        <a href="/attending/{{event._id}}/{{event.user._id}}" class="button is-primary">I'm going!</a>
         <p class="button is-disabled">Cancel</p>
       </div>
     </div>

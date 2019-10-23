@@ -81,9 +81,9 @@
 
 
         <div class="select">
-            <select>
+            <select name="group">
                 {{#each groups}}
-                    <option>{{this.name}}</option>
+                    <option value="{{this._id}}">{{this.name}}</option>
                 {{/each}}
             </select>
         </div>
