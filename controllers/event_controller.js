@@ -15,19 +15,11 @@ const index = (req, res) =>
 const viewCreate = (req, res) =>
 {
     Group.find({
-        user: req.params.userId
+        user: req.user._id
     })
-        .then(groups => {
-          console.log("ALALAL");
-          console.log(groups);
-          // if(user.groups){
-            res.render('events/new', { groups });
-          // }else{
-          //   res.redirect('/groups/new');
-          // }
-      })
-}
-
+    .then(groups => res.render('events/new', { groups }));
+    
+};
 
 const create = (req, res) =>
 {
