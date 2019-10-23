@@ -1,1 +1,39 @@
-<h1>Groups Show</h1>
+<div class="banner">
+  <div class="container">
+    <h1 class="hero-banner-header">{{group.name}}</h1>
+    <p>admins: {{group.admin.name}}</p>
+  </div>
+</div>
+<div class="container">
+  <div class="show-content">
+    <div class="content-side">
+      <div class="cont-side-img">
+      </div>
+      <div class="cont-details">
+        <h1 class="hero-banner-header" style="font-size: 22pt;">Details</h1>
+        <p style="margin-bottom: 20px;">
+        </p>
+        <a href="/groups/addUser/{{this.user._id}}" class="button is-primary">I'm going!</a>
+      </div>
+    </div>
+    <div class="location-side">
+      <div class="group-events">
+        <div class="e-index-cards">
+          {{#each group.events}}
+          <a href="/events/show/{{this._id}}">
+            <div class="card index-card">
+              <div class="e-index-card-img">
+              </div>
+              <div class="e-index-card-content">
+                <h1 class="index-card-header">{{this.name}}</h1>
+                <p>{{this.details}}</p>
+                <p>{{this.time}}</p>
+              </div>
+            </div>
+          {{/each}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

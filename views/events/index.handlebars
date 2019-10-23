@@ -1,5 +1,8 @@
 <div class="container">
   <h1 class="hero-banner-header" style="text-align: center;">All Events</h1>
+  <div style="width:100%!important; text-align:center;" class="create-event">
+  <a href="/events/new">Create Event</a>
+  </div>
   <div class="e-index-cards">
     {{#each events}}
     <a href="/events/show/{{this._id}}">
