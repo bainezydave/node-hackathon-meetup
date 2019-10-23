@@ -2,8 +2,8 @@
   <div class="container">
     <p class="show-time">{{event.time}}</p>
     <h1 class="hero-banner-header">{{event.name}}</h1>
-    <p>Created By: {{event.user.firstName}}</p>
-    <p>From <a href="/groups/show/{{event.group}}">{{event.group}}</a></p>
+    <p>Created By: {{event.user.firstName}} {{event.user.lastName}}</p>
+    <p>From: <a href="/groups/show/{{event.group}}">{{event.group}}</a></p>
   </div>
 </div>
 <div class="container">

@@ -40,7 +40,7 @@ const create = (req, res) =>
         photo: req.body.photo,
         user: req.user._id,
         accepted: req.body.accepted,
-        declined: req.body.declined
+        group: req.body.group
     };
 
     try

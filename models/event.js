@@ -31,7 +31,12 @@ const EventSchema = new Schema({
         type: String
     },
     user: {
-        type: String
+        type: Schema.Types.ObjectId,
+        ref: "users"
+    },
+    group: {
+        type: Schema.Types.ObjectId,
+        ref: "groups"
     },
     accepted: {
         type: Array,
