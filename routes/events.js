@@ -13,7 +13,7 @@ router.post('/new',         ensureUser, EventController.create);
 router.put('/:id',          ensureUser, EventController.edit);
 router.delete('/:id',       ensureUser, EventController.remove);
 
-router.get('/attending/:eventId/:userId', ensureUser, EventController.attending);
+router.get('/attending/:eventId/', ensureUser, EventController.attending);
 
 // Comments
 router.post('/comment/:id',             EventController.createComment);

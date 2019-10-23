@@ -165,21 +165,17 @@ const removeComment = (req, res) =>
 
 const attending = (req, res) =>
 {
-    User.findOne({ _id: req.params.userId })
-        .then(user =>
+    Event.findOne({ _id: req.params.eventId })
+        .then(event =>
         {
-            Event.findOne({ _id: req.params.eventId })
-                .then(event =>
-                {
-                    let x = { firstName: user.firstName, lastName: user.lastName, email: user.email };
+            let x = { firstName: req.user.firstName, lastName: req.user.lastName, email: req.user.email };
 
-                    event.accepted.push(x);
+            event.accepted.push(x);
 
-                    console.log(event.accepted);
+            console.log(event.accepted);
 
-                    event.save().then(event => res.redirect(`/events/show/${event.id}`));
+            event.save().then(event => res.redirect(`/events/show/${event.id}`));
 
-                });
         });
 };
 
