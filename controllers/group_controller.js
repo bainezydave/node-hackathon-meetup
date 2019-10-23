@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Group = mongoose.model('groups');
 
-
 const index = (req, res) =>
 {
     Group.find({ status: 'public' })

@@ -12,6 +12,9 @@ router.get('/edit/:id',     ensureUser, EventController.viewEdit);
 router.post('/new',         ensureUser, EventController.create);
 router.put('/:id',          ensureUser, EventController.edit);
 router.delete('/:id',       ensureUser, EventController.remove);
+
+router.get('/attending/:eventId/:userId', ensureUser, EventController.attending);
+
 // Comments
 router.post('/comment/:id',             EventController.createComment);
 router.delete('/:event_id/comments/:id',EventController.removeComment);

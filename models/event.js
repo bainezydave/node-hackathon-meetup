@@ -7,8 +7,7 @@ const EventSchema = new Schema({
         required: true
     },
     details: {
-        type: String,
-        required: true
+        type: String
     },
     address: {
         type: String
@@ -35,8 +34,9 @@ const EventSchema = new Schema({
         type: String
     },
     accepted: {
-        type: Schema.Types.ObjectId,
-        ref: "users"
+        type: Array,
+        ref: "users",
+        person: [{firstName: String, lastName: String, email: String}]
     },
     comments: [
         {
