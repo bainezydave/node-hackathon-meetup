@@ -8,9 +8,11 @@ router.get('/',                         GroupController.index);
 router.get('/show/:id',                 GroupController.show);
 router.get('/show/:id',                 GroupController.show);
 router.get('/user/:userId', ensureUser, GroupController.user);
+
 router.get('/new',          ensureUser, GroupController.viewCreate);
 router.get('/edit/:id',     ensureUser, GroupController.viewEdit);
-router.post('/',            ensureUser, GroupController.create);
+
+router.post('/new',         ensureUser, GroupController.create);
 router.put('/:id',          ensureUser, GroupController.edit);
 router.delete('/:id',       ensureUser, GroupController.remove);
 

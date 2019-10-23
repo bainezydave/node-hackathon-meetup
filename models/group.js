@@ -15,8 +15,9 @@ const GroupSchema = new Schema({
         required: true
     },
     members: {
-        type: Schema.Types.ObjectId,
-        ref: "users"
+        type: Array,
+        ref: "users",
+        person: [{firstName: String, lastName: String, email: String}]
     },
     hosts: {
         type: Schema.Types.ObjectId,
@@ -24,6 +25,10 @@ const GroupSchema = new Schema({
     },
     photo: {
         type: String
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "users"
     }
 });
 

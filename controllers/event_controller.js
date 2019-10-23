@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Event = mongoose.model('events');
+const User = mongoose.model('users');
+const Group = mongoose.model('groups');
 
 const index = (req, res) =>
 {
@@ -10,8 +12,14 @@ const index = (req, res) =>
 };
 
 
-const viewCreate = (req, res) => res.render('events/new');
+const viewCreate = (req, res) =>
+{
+    Group.find({
+        user: req.params.userId
+    })
+    .then(groups => res.render('events/new', { groups }));
 
+}
 
 const create = (req, res) =>
 {
@@ -150,6 +158,28 @@ const removeComment = (req, res) =>
 };
 
 
+
+const attending = (req, res) =>
+{
+    User.findOne({ _id: req.params.userId })
+        .then(user =>
+        {
+            Event.findOne({ _id: req.params.eventId })
+                .then(event =>
+                {
+                    let x = { firstName: user.firstName, lastName: user.lastName, email: user.email };
+
+                    event.accepted.push(x);
+
+                    console.log(event.accepted);
+
+                    event.save().then(event => res.redirect(`/events/show/${event.id}`));
+
+                });
+        });
+};
+
+
 module.exports = {
     index,
     viewCreate,
@@ -161,5 +191,6 @@ module.exports = {
     remove,
     user,
     createComment,
-    removeComment
+    removeComment,
+    attending
 };
