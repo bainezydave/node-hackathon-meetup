@@ -32,7 +32,11 @@ const viewCreate = (req, res) =>
 
 const create = (req, res) =>
 {
-    console.log(req.user._id);
+
+    console.log(req.body.date);
+    console.log(req.body.time);
+
+    let date = new Date();
 
     const newEvent = {
         name: req.body.name,
@@ -41,7 +45,7 @@ const create = (req, res) =>
         city: req.body.city,
         postCode: req.body.postCode,
         state: req.body.state,
-        time: req.body.time,
+        time: date,
         photo: req.body.photo,
         user: req.user._id,
         accepted: req.body.accepted,
