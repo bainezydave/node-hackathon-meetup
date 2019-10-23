@@ -104,7 +104,6 @@ const edit = (req, res) =>
         });
 };
 
-
 const remove = (req, res) =>
 {
     Event.remove({ _id: req.params.id })

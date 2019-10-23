@@ -2,7 +2,7 @@
   <div class="container">
     <p class="show-time">{{event.time}}</p>
     <h1 class="hero-banner-header">{{event.name}}</h1>
-    <p>Host: {{this.user.firstName}}</p>
+    <p>Created By: {{event.name}}</p>
     <p>From <a href="/groups/show/{{this.group}}">{{this.group}}</a></p>
   </div>
 </div>
@@ -21,8 +21,8 @@
           Salesforce faces of all levels are very welcome.
           Join us whether this is your first, or 300th Trailhead and complete at
           your own pace</p>
-          <a href="#"><button class="button is-primary">I'm going!</button></a>
-          <button class="button is-primary">Other people are going to this event!</button>
+          <a href="/attending/{{this._id}}/{{this.user._id}}" class="button is-primary">I'm going!</a>
+          <p class="button is-disabled">Cancel</p>
       </div>
     </div>
     <div class="location-side">
