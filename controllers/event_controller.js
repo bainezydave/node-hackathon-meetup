@@ -32,7 +32,7 @@ const create = (req, res) =>
         city: req.body.city,
         postCode: req.body.postCode,
         state: req.body.state,
-        time: event.time = dateFormat(req.body.time, "dddd, mmmm dS, yyyy, h:MM:ss TT"),
+        time: req.body.time,
         photo: req.body.photo,
         user: req.user._id,
         accepted: req.body.accepted,
@@ -44,12 +44,12 @@ const create = (req, res) =>
         new Event(newEvent)
             .save()
             .then(event => res.redirect(`/events/show/${event._id}`));
-        
+
     } catch(error)
     {
         res.json(error);
     }
-    
+
 };
 
 
@@ -101,7 +101,7 @@ const edit = (req, res) =>
             event.city = req.body.city;
             event.postCode = req.body.postCode;
             event.state = req.body.state;
-            event.time = dateFormat(req.body.time, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+            event.time = req.body.time;
             event.photo = req.body.photo;
             event.accepted = req.body.accepted;
             event.declined = req.body.declined;
@@ -111,7 +111,6 @@ const edit = (req, res) =>
                 .then(event => res.redirect('/'));
         });
 };
-
 
 const remove = (req, res) =>
 {
