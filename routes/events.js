@@ -3,6 +3,16 @@ const router = express.Router();
 const EventController = require("../controllers/event_controller");
 const { ensureUser, ensureGuest } = require('../helpers/auth');
 
+
+router.use((req, res, next) => 
+{
+    if (req.query._method == 'DELETE') {
+        req.method = 'DELETE';
+        req.url = req.path;
+    }       
+    next(); 
+});
+
 router.get('/',                         EventController.index);
 router.get('/show',                     EventController.show);
 router.get('/show/:id',                 EventController.showOne);

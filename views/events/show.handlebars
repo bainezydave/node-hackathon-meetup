@@ -16,6 +16,8 @@
                 <h1 class="hero-banner-header" style="font-size: 22pt;">Details</h1>
                 <p style="margin-bottom: 20px;">{{event.details}}</p>
                 <a href="/events/attending/{{event._id}}/" class="button is-primary">I'm going!</a>
+
+                <a href="/events/{{event._id}}/?_method=DELETE" class="button is-danger">Delete Event</a>
             </div>
         </div>
         <div class="location-side">
